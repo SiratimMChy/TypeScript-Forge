@@ -1,25 +1,20 @@
-<h1 align="center">TypeScript</h1>
-
-A structured repository covering TypeScript from core fundamentals and advanced type mechanics to object-oriented programming.
-
----
+<h1 align="center">TypeScript-Forge</h1>
 
 ## Overview
 
-### 1. TypeScript Fundamentals
-Covers the core building blocks of TypeScript, including primitive types, type annotations, type inference, arrays, tuples, functions, optional and default parameters, rest parameters, object types, type aliases, and interfaces. It establishes strong type safety and foundational development practices.
+A collection of TypeScript code and notes, covering everything from the basics to more advanced concepts and object-oriented programming.
 
-### 1. [TypeScript Fundamentals](./TypeScript%20Fundamentals/)
-Contains foundational TypeScript topics with source code, compiled JavaScript output, and comprehensive notes.
-- **Topics Covered:**
-  - `01-primitive-types.ts` — Primitive types, JavaScript vs TypeScript, type safety & compiler benefits.
-  - `02-arrays-and-tuples.ts` — Arrays, Tuples, and the `readonly` modifier.
-  - `03-function-parameters.ts` — Optional (`?`) and default parameters in functions.
-  - `04-rest-parameters.ts` — Rest parameters (`...`) with Arrays and Tuples.
-  - `05-objects-types-interfaces.ts` — Object types, Type Aliases, and Interfaces.
-- 📖 **Detailed Notes:** [TypeScript Fundamentals README](./TypeScript%20Fundamentals/README.md)
+### TypeScript Fundamentals
 
----
+Covers core TypeScript concepts including primitive types, arrays, tuples, functions, objects, and interfaces. Source files are located in `src/`, compiled JavaScript output in `dist/`, and detailed topic notes are available in [README.md](./TypeScript%20Fundamentals/README.md).
+
+#### Topics Covered
+
+- `01-primitive-types.ts` — Primitive types, static type checking, type inference, and JavaScript vs TypeScript
+- `02-arrays-and-tuples.ts` — Arrays, tuples, and the `readonly` modifier
+- `03-function-parameters.ts` — Optional and default parameters
+- `04-rest-parameters.ts` — Rest parameters with arrays and tuples
+- `05-objects-types-interfaces.ts` — Object types, type aliases, and interfaces
 
 ---
 
