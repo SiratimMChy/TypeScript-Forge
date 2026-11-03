@@ -6,7 +6,7 @@ A collection of TypeScript code and notes, covering everything from the basics t
 
 ### TypeScript Fundamentals
 
-Covers core TypeScript concepts including primitive types, arrays, tuples, functions, objects, and interfaces. Source files are located in `src/`, compiled JavaScript output in `dist/`, and detailed topic notes are available in [README.md](./TypeScript%20Fundamentals/README.md).
+Covers core TypeScript concepts including primitive types, arrays, tuples, functions, objects, and interfaces. Detailed topic notes and examples are available in [README.md](./TypeScript%20Fundamentals/README.md).
 
 #### Topics Covered
 
@@ -16,14 +16,24 @@ Covers core TypeScript concepts including primitive types, arrays, tuples, funct
 - `04-rest-parameters.ts` — Rest parameters with arrays and tuples
 - `05-objects-types-interfaces.ts` — Object types, type aliases, and interfaces
 
+### TypeScript Advanced Type
+
+Covers advanced type mechanics including literal types, union types, type aliases, and interfaces. Detailed topic notes and examples are available in [README.md](./TypeScript%20Advanced%20Type/README.md).
+
+#### Topics Covered
+
+- `01-union-and-literal-types.ts` — Literal types, basic union types, literal union types, and object union types
+- `02-type-alias-vs-interface.ts` — Type alias vs interface, declaration merging, extension vs intersection, and best practices
+
 ---
 
 ## Folder Structure
 
 ```text
 TypeScript/
-├── TypeScript Fundamentals/
-├── TypeScript Advanced Type/
-├── Object Oriented Programming in TypeScript/
-└── README.md
+├── tsconfig.json
+├── README.md
+├── 01-TypeScript Fundamentals/
+├── 02-TypeScript Advanced Type/
+└── 03-Object Oriented Programming in TypeScript/
 ```
