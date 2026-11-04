@@ -146,3 +146,48 @@ Remember:
 - Interface provides a clear way to describe object structures.
 - Both help make TypeScript code more organized,
   reusable, and maintainable.
+
+
+**03-type-hierarchy.ts**
+
+Type Hierarchy
+
+1. What are Top Types?
+
+- Top types are types that can accept any value.
+- In TypeScript, any and unknown are top types.
+- any turns off type checking, allowing you to perform any operation.
+- unknown is type-safe; you must verify or narrow its type before accessing its properties.
+
+2. What are Core Types?
+
+- Core types represent the standard data types used in TypeScript.
+- Examples include string, number, boolean, object, and function types.
+- They form the central layer of TypeScript's type hierarchy.
+
+3. What are Nullish Types?
+
+- Nullish types represent the absence of values.
+- null represents the intentional absence of any object value.
+- undefined represents a variable that has been declared but not assigned a value.
+- Often used in union types (e.g., User | null) to represent optional or empty states.
+
+4. What are Unit Types?
+
+- A Unit Type is a type that allows only one specific value.
+- void is used when a function returns nothing.
+- undefined is a subtype of unit types, representing the literal value undefined.
+
+5. What is the Bottom Type?
+
+- A Bottom Type is at the very bottom of the type hierarchy.
+- In TypeScript, never is the bottom type.
+- It represents a value that can never occur (e.g., functions that always throw an error or infinite loops).
+- never is assignable to every type, but no type is assignable to never (except never itself).
+
+Important:
+
+- any disables TypeScript's safety features, while unknown enforces type checking before use.
+- never is used for exhaustive type checks and values that cannot exist.
+- void functions do not return a usable value, whereas undefined returns the literal undefined.
+- Understanding type hierarchy helps in type narrowing and building robust type systems.
