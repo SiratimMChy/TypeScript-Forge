@@ -150,44 +150,82 @@ Remember:
 
 **03-type-hierarchy.ts**
 
-Type Hierarchy
+TypeScript Types
 
-1. What are Top Types?
+1. Top Types (any & unknown):
 
-- Top types are types that can accept any value.
-- In TypeScript, any and unknown are top types.
-- any turns off type checking, allowing you to perform any operation.
-- unknown is type-safe; you must verify or narrow its type before accessing its properties.
+- Top types can accept values from almost all other types (like string, number, boolean, etc.).
+- TypeScript has two important top types: any and unknown.
 
-2. What are Core Types?
+  * any:
+    - any turns off TypeScript's type checking for a variable.
+    - A variable with any can store any type of value.
+    - We can access properties, call methods, and do anything without getting TypeScript errors.
+    - However, using any removes TypeScript's safety. Use it only when really needed.
 
-- Core types represent the standard data types used in TypeScript.
-- Examples include string, number, boolean, object, and function types.
-- They form the central layer of TypeScript's type hierarchy.
+  * unknown:
+    - unknown can also store any type of value, just like any.
+    - Unlike any, it does not allow us to use properties or do operations without checking the type first.
+    - We must use Type Narrowing (checking the exact type using typeof or if conditions) before working with an unknown value.
+    - It is a safer alternative to any when we do not know the type in advance.
 
-3. What are Nullish Types?
+2. Core Types:
 
-- Nullish types represent the absence of values.
-- null represents the intentional absence of any object value.
-- undefined represents a variable that has been declared but not assigned a value.
-- Often used in union types (e.g., User | null) to represent optional or empty states.
+- Core types are the basic building blocks used to describe values and functions in everyday code.
+- Some important core types include string, number, boolean, void, null, undefined, and never.
+- All of these core types can be stored inside a Top Type (like unknown).
 
-4. What are Unit Types?
+3. Nullish Types (null & undefined):
 
-- A Unit Type is a type that allows only one specific value.
-- void is used when a function returns nothing.
-- undefined is a subtype of unit types, representing the literal value undefined.
+- null and undefined both mean that a value is missing or empty.
+- null is used when we intentionally want to keep a variable empty (for example: currentUser = null).
+- undefined means a variable has been created, but no value has been given to it yet.
+- We can use Union types (like User | null) when a value might be present or empty.
+- Before using a nullable value (like User | null), we also use Type Narrowing (e.g., if (user !== null)) to make sure it is not null or undefined.
 
-5. What is the Bottom Type?
+4. Unit Type (void):
 
-- A Bottom Type is at the very bottom of the type hierarchy.
-- In TypeScript, never is the bottom type.
-- It represents a value that can never occur (e.g., functions that always throw an error or infinite loops).
-- never is assignable to every type, but no type is assignable to never (except never itself).
+- A unit type is a type that has only one possible result or value.
+- void is mainly used as a function return type when a function does not return any useful value (like just printing "Hlw World").
+- If a function has no return statement, TypeScript automatically gives it a void return type.
+- You cannot store the result of a void function inside a string or number variable.
 
-Important:
+5. Subtype of Unit Type (undefined vs void):
 
-- any disables TypeScript's safety features, while unknown enforces type checking before use.
-- never is used for exhaustive type checks and values that cannot exist.
-- void functions do not return a usable value, whereas undefined returns the literal undefined.
-- Understanding type hierarchy helps in type narrowing and building robust type systems.
+- void and undefined are closely related, but they are not the exact same thing.
+- undefined is an actual JavaScript value and also a stricter subtype of void.
+- A void function does not need a return statement at all.
+- However, a function with an undefined return type means it specifically wants to return undefined.
+
+6. Bottom Type (never):
+
+- never is called the bottom type because it represents a value that will never happen.
+- We mainly use never for functions that throw an error (like throw new Error()) or run forever in an infinite loop, because these functions never finish normally.
+- No normal value (like a number or string) can ever be stored in a never variable.
+- However, a never function can be assigned to any other type because the function stops (crashes with an error) before returning anything wrong.
+
+Branching Rule in Hierarchy:
+
+- Think of the type hierarchy like a tree: Top Types (any, unknown) are at the top, and Bottom Type (never) is at the bottom.
+- In the middle, types like string, number, null, and void live on SEPARATE branches.
+- We cannot assign a value from one branch to a different branch (for example: we cannot put null into void, or void into string).
+- Only a subtype on the same branch can go into its parent type (for example: undefined is a subtype under the void branch, so undefined can be assigned to void).
+
+Important Differences:
+
+- any: Allows everything and turns off type checking (unsafe).
+- unknown: Accepts any value, but forces us to check the type (Type Narrowing) before using it (safe).
+- void: Means a function finishes normally, but does not return any useful value.
+- undefined: Means a variable has not been given a value yet, or is a specific JavaScript value.
+- null: Means a value was intentionally kept empty.
+- never: Means a value cannot exist, or a function never finishes normally (such as when throwing an error).
+
+Remember:
+
+- Always prefer unknown over any when you do not know the type.
+- Use Type Narrowing (if/typeof checks) when working with unknown or nullable types (like User | null).
+- Different branches (like string, null, void) cannot be mixed directly without a Union (|).
+- Use void for functions that do not return a useful value.
+- Use null when you want to intentionally make a value empty.
+- Use undefined when you specifically need that value.
+- Use never when a function throws an error (throw new Error) or runs forever.
