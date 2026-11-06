@@ -332,3 +332,223 @@ Remember:
   or undefined.
 - Use "as const" to preserve literal types and readonly properties.
 - Type Assertion should be a last resort, not a default approach.
+
+
+**05-type-narrowing.ts**
+
+Type Narrowing in TypeScript
+
+1. typeof Operator:
+
+- typeof is a JavaScript operator that returns the type of a value
+  as a string at runtime.
+- It is commonly used to check whether a value is a string,
+  number, boolean, undefined, bigint, symbol, function, or object.
+- In TypeScript, typeof can also be used for type checking
+  and narrowing within conditional statements.
+
+2. Type Guard:
+
+- A Type Guard is a condition or check that helps TypeScript
+  identify the specific type of a value.
+- It is useful when a variable can hold more than one type,
+  such as a Union Type.
+- typeof is one of the common ways to create a Type Guard.
+- After checking the type, TypeScript allows us to safely
+  use properties and methods available on that specific type.
+- This process is called Type Narrowing.
+
+3. Type Narrowing:
+
+- Type Narrowing means reducing a variable's possible types
+  based on conditions or checks.
+- For example, if a variable has the type string | number,
+  checking typeof value === "string" narrows its type to string
+  inside that block.
+- In the other branch, TypeScript can narrow it to number.
+- Type Narrowing helps us work with different types safely
+  without unnecessary type assertions.
+
+4. Truthiness Narrowing:
+
+- Truthiness Narrowing uses conditions to check whether
+  a value is truthy or falsy.
+- In JavaScript, common falsy values include:
+  false, 0, -0, 0n, "", null, undefined, and NaN.
+- When checking an object that may be null or undefined,
+  a truthiness check can help narrow its type.
+- For example, user && user.address checks that both user
+  and user.address are truthy before accessing the street property.
+- This helps prevent errors caused by accessing properties
+  on null or undefined values.
+- Be careful when using truthiness checks if values like
+  0, false, or "" are valid values in your application.
+
+5. Optional Properties:
+
+- The ? symbol makes an object property optional.
+- An optional property may be absent or have the value undefined.
+- For example, address?: { street: string } means that
+  the address property is not required.
+- We should check whether an optional property exists
+  before accessing its nested properties.
+- An optional property does not automatically allow null
+  unless null is explicitly included in its type.
+
+6. Type Alias and Interface:
+
+- Both Type Alias and Interface can describe object structures.
+- Type Alias can also represent union types, primitive types,
+  tuples, and other type combinations.
+- Interface is commonly used to define reusable object structures.
+- A Type Alias can combine an object type with null
+  using a Union Type.
+- Both can be used to define the structure of objects.
+
+7. Common Type Narrowing Techniques:
+
+- typeof: Checks primitive types such as string and number.
+- instanceof: Checks whether an object belongs to a specific class.
+- in: Checks whether a property exists in an object.
+- Truthiness Check: Checks whether a value is truthy or falsy.
+- Equality Check: Compares values to narrow down possible types.
+- Custom Type Guard: Uses a function to determine a specific type.
+
+Remember:
+
+- typeof checks the runtime type of a value.
+- A Type Guard helps TypeScript narrow down possible types.
+- Type Narrowing makes it safer to work with Union Types.
+- Truthiness checks help handle nullish and optional values.
+- Optional properties may be undefined.
+- Use appropriate checks before accessing potentially
+  unavailable properties or values.
+
+**06-narrowing-continued.ts**
+
+Advanced Type Guards in TypeScript
+
+1. Equality Narrowing:
+
+- Equality Narrowing uses equality operators to narrow down
+  the possible types of a variable.
+- Common operators include ===, !==, ==, and !=.
+- When two variables are compared using strict equality,
+  TypeScript can identify their common possible types.
+- It is useful when working with multiple Union Types.
+- Strict equality (=== and !==) is generally preferred
+  because it does not perform type coercion.
+
+2. Inequality Narrowing:
+
+- Inequality Narrowing uses comparison conditions
+  to eliminate specific types from a Union Type.
+- The !== operator checks whether two values are different.
+- For example, x !== null removes null from
+  the possible types of x within the condition.
+- It is useful when handling null and undefined values.
+
+3. "in" Operator:
+
+- The in operator checks whether a property exists
+  in an object.
+- It is commonly used to distinguish between
+  different object types in a Union Type.
+- TypeScript uses the property check to narrow down
+  the possible object types.
+- It is useful when different object types have
+  different property names.
+- The in operator can also check inherited properties.
+- Optional properties may exist in multiple types,
+  so they may not always narrow to a single type.
+
+Syntax:
+"propertyName" in object;
+
+4. instanceof Operator:
+
+- instanceof is a JavaScript operator used to check
+  whether an object belongs to a particular class
+  or constructor's prototype chain.
+- TypeScript also uses instanceof as a Type Guard.
+- It helps narrow down object types at runtime.
+- It is useful when working with built-in objects
+  such as Date, Error, and custom classes.
+- It is generally not suitable for distinguishing
+  ordinary object types based only on their structure.
+
+Syntax:
+value instanceof ClassName;
+
+5. Discriminated Union:
+
+- A Discriminated Union is a pattern used with Union Types
+  to distinguish between multiple object types.
+- Each object type contains a common property
+  with a different literal value.
+- This common property is called a Discriminant Property.
+- TypeScript checks the discriminant property
+  to identify the specific object type.
+- It is useful when working with different object structures
+  that share a common purpose.
+
+Example:
+
+- Circle and Square are two different object types.
+- Both contain a common property named kind.
+- Circle has the literal value "circle".
+- Square has the literal value "square".
+- Checking shape.kind allows TypeScript to identify
+  the correct object type.
+
+6. Literal Types:
+
+- A Literal Type represents an exact value
+  instead of a general type.
+- For example, "circle" is a string literal type.
+- A variable with the type "circle" can only contain
+  the exact value "circle".
+- Literal Types are commonly used in Discriminated Unions.
+- They help TypeScript distinguish between
+  different object types.
+
+7. Common Caveats of Type Guards:
+
+- typeof null returns "object" because of
+  a historical JavaScript behavior.
+- typeof an array also returns "object".
+- Therefore, typeof alone cannot distinguish
+  arrays from regular objects.
+- Array.isArray() should be used when explicitly
+  checking whether a value is an array.
+- instanceof checks an object's prototype chain,
+  so it may not work reliably across different
+  JavaScript execution environments.
+- The in operator checks whether a property exists,
+  but does not guarantee that its value is valid.
+- Equality checks should be used carefully
+  when multiple types have overlapping values.
+
+8. Best Practices:
+
+- Use typeof for checking primitive types.
+- Use strict equality for comparing values.
+- Use the in operator to check object properties.
+- Use instanceof for identifying class instances.
+- Use Discriminated Unions when working with
+  multiple related object types.
+- Prefer clear and explicit conditions
+  when narrowing complex Union Types.
+- Avoid unnecessary Type Assertions when
+  Type Guards can provide type safety.
+
+Remember:
+
+- Equality Narrowing uses comparison operators.
+- Inequality Narrowing eliminates specific possible types.
+- The in operator checks whether a property exists.
+- instanceof checks an object's prototype chain.
+- Discriminated Unions use a common literal property
+  to identify specific object types.
+- Type Guards help make TypeScript code safer
+  when working with Union Types.
