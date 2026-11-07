@@ -552,3 +552,96 @@ Remember:
   to identify specific object types.
 - Type Guards help make TypeScript code safer
   when working with Union Types.
+
+
+**07-generic.ts**
+
+Generics in TypeScript
+
+1. What are Generics?
+
+- Generics allow us to create reusable functions, interfaces,
+  and type definitions that work with different data types.
+- They help us write flexible code without losing type safety.
+- Instead of fixing a data type in advance, we use a
+  type parameter that is determined when the generic is used.
+- This allows the same code to work with strings, numbers,
+  objects, and other types while preserving their actual types.
+
+2. Generic Type Parameter:
+
+- A generic type parameter is a placeholder for a data type.
+- It is commonly represented by T.
+- The actual type is determined when we use the generic.
+- Common naming conventions include:
+  T = Type
+  U = Another Type
+  K = Key
+  V = Value
+- These are naming conventions, not reserved keywords.
+
+3. Generic Functions:
+
+- A generic function uses a type parameter to accept
+  different types of input values.
+- The type parameter is declared inside angle brackets <>.
+- It allows a function to work with different types
+  without using any.
+- TypeScript preserves the relationship between the
+  input type and the return type.
+- This means the returned value retains the specific
+  type of the input instead of losing its type information.
+
+4. Type Inference:
+
+- TypeScript can automatically determine the actual
+  type of a generic parameter from the provided argument.
+- This process is called Type Inference.
+- We do not always need to specify the type manually.
+- The inferred type is used throughout the generic function
+  and its return value.
+
+5. Generic Interfaces:
+
+- A generic interface uses a type parameter to define
+  a reusable structure for different data types.
+- The type parameter is declared after the interface name.
+- The actual data type is supplied when using the interface.
+- This allows the same interface structure to be reused
+  with different types of data.
+
+6. Generics with API Responses:
+
+- API responses often share common properties such as
+  data, success, and statusCode.
+- However, the structure of the data property can differ
+  depending on the API response.
+- A generic interface allows us to define the common
+  response structure only once.
+- The T parameter represents the data type of the response.
+- We can reuse the same interface for user, blog,
+  product, or other response data.
+- This avoids creating separate interfaces for the
+  same response structure.
+
+7. Generics vs any:
+
+- any allows different types of values but disables
+  TypeScript's type checking.
+- Generics allow different types while preserving
+  their specific type information.
+- With generics, TypeScript can detect invalid operations
+  based on the actual data type.
+- Therefore, prefer generics over any when a reusable
+  function or structure needs to preserve type safety.
+
+Remember:
+
+- Generics make functions and interfaces reusable.
+- T is a placeholder, not a fixed data type.
+- TypeScript can infer the actual type automatically.
+- Generic functions preserve the relationship between
+  input and output types.
+- Generic interfaces allow the same structure to work
+  with different data types.
+- Prefer generics over any to maintain type safety.

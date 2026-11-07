@@ -18,7 +18,7 @@ Covers core TypeScript concepts including primitive types, arrays, tuples, funct
 
 ### TypeScript Advanced Type
 
-Covers advanced type mechanics including literal types, union types, type aliases, interfaces, type hierarchy, type assertions, and type narrowing. Detailed topic notes and examples are available in [README.md](./02-TypeScript%20Advanced%20Type/README.md).
+Covers advanced type mechanics including literal types, union types, type aliases, interfaces, type hierarchy, type assertions, type narrowing, and generics. Detailed topic notes and examples are available in [README.md](./02-TypeScript%20Advanced%20Type/README.md).
 
 #### Topics Covered
 
@@ -28,6 +28,7 @@ Covers advanced type mechanics including literal types, union types, type aliase
 - `04-type-assertions.ts` — Type assertions (`as`), non-null assertions (`!`), const assertions (`as const`), and best practices
 - `05-type-narrowing.ts` — Type narrowing, `typeof` type guards, truthiness checks, and optional properties
 - `06-narrowing-continued.ts` — Advanced type guards: equality, inequality, `in` operator, `instanceof`, discriminated unions, and caveats
+- `07-generic.ts` — Generics: generic functions, type parameters (`T`), type inference, generic interfaces (`apiResponse<T>`), and generics vs `any`
 
 ---
 
