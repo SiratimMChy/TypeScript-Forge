@@ -645,3 +645,51 @@ Remember:
 - Generic interfaces allow the same structure to work
   with different data types.
 - Prefer generics over any to maintain type safety.
+
+
+**08-generic-with-promise.ts**
+
+Applying Generic Type to Handle Promise
+
+1. Generic API Response Wrapper (apiResponse<T>):
+
+- In real-world projects, backend APIs usually follow a standard structure (like success, statusCode, message, and data).
+- The actual 'data' changes depending on the endpoint (sometimes it is a User, sometimes a Product[], etc.).
+- By using a Generic <T> for the 'data' property (interface apiResponse<T>), we can reuse this single interface for every API response in our app (e.g., apiResponse<User>).
+
+2. Why is the return type Promise<User | undefined>?
+
+- Every 'async' function automatically returns a Promise.
+- Inside the 'try' block, if everything succeeds, the function returns 'data.data' which is of type 'User'.
+- However, if an error occurs and execution jumps to the 'catch' block, we only log the error with console.error() and do NOT return anything.
+- In JavaScript/TypeScript, a function path that finishes without returning a value automatically returns 'undefined'.
+- Therefore, the Promise can resolve to either 'User' (on success) or 'undefined' (on error), making the return type 'Promise<User | undefined>'.
+
+3. Type Assertion on JSON Data (as apiResponse<User>):
+
+- By default, 'await res.json()' returns 'any' because TypeScript does not know what the external server will send at runtime.
+- Using 'as apiResponse<User>' tells TypeScript to treat the parsed JSON according to our structured generic interface.
+
+4. Narrowing the 'catch' Error (error instanceof Error):
+
+- In TypeScript, the 'error' variable inside a catch block is treated as 'unknown' (or 'any') because anything can be thrown in JavaScript (not just Error objects).
+- Using 'if (error instanceof Error)' narrows the type down to a real Error object, allowing us to safely access 'error.message'.
+
+5. Narrowing the Final Result (if (userData)):
+
+- Since 'userData' has the type 'User | undefined', TypeScript will not let us access 'userData.name' directly.
+- Using a Truthiness check 'if (userData)' removes 'undefined' and confirms that 'userData' is a valid 'User' object.
+
+Important Differences:
+
+- apiResponse<T> : Describes the structure of the JSON body coming from the server.
+- Promise<User | undefined>: Describes what the async function itself will eventually return.
+- error instanceof Error : Checks if the caught error is a standard JavaScript Error class instance.
+- if (userData) : Checks that the returned data is not undefined before using its properties.
+
+Remember:
+
+- Always wrap async function return types inside Promise<...>.
+- If a catch block does not re-throw an error or return a fallback value, always include '| undefined' in your Promise return type.
+- Use 'instanceof Error' inside catch blocks before accessing '.message'.
+- Narrow down 'User | undefined' using an 'if' check before accessing object properties like 'userData.name'.
