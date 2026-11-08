@@ -619,5 +619,49 @@ Remember:
 - Polymorphism makes your UI rendering engine extremely flexible and scalable—adding a new component
   (like a 'Checkbox' or 'Dropdown') only requires creating a new class that extends 'UIElement'.
 
+**07-utility-classes.ts**
+
+TypeScript Utility Types Explained
+
+1. What are Utility Types?
+
+- Utility types are built-in generic helper tools provided by TypeScript.
+- They allow us to transform, modify, or extract properties from existing interfaces
+  without having to rewrite new types from scratch.
+
+2. Breakdown of the 5 Utility Types used here:
+
+  A. Partial<T>:
+  - Makes **all** properties of an interface optional by adding a question mark (?).
+  - Perfect for update/PATCH requests where users can send any combination of fields.
+
+  B. Required<T>:
+  - Makes **all** optional properties mandatory by removing the question mark (?).
+  - Perfect for initialization logic where every configuration value is strictly required.
+
+  C. Pick<T, K>:
+  - Extracts/keeps **only** the specified keys from type T.
+  - Useful when you need a smaller subset of a large interface (e.g., product card preview).
+
+  D. Omit<T, K>:
+  - Excludes/removes the specified keys from type T.
+  - Useful for hiding sensitive information (like salary, passwords, or NIDs) from public views.
+
+  E. Record<K, T>:
+  - Maps a set of string literal keys (K) to a specific value type (T).
+  - Extremely useful for mapping configurations, environment URLs, or role-based permissions.
+
+Important Differences:
+
+- Partial vs Required -> Partial makes everything optional; Required makes everything mandatory.
+- Pick vs Omit       -> Pick keeps only the selected keys; Omit removes the selected keys.
+- Record             -> Creates mapped dictionary-like object types based on union keys.
+
+Remember:
+
+- Utility types keep your codebase DRY (Don't Repeat Yourself) by deriving new types from existing ones.
+- They exist purely at the TypeScript compile level and add zero runtime overhead in JavaScript.
+
+
 
 
