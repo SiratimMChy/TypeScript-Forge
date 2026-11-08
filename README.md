@@ -31,6 +31,17 @@ Covers advanced type mechanics including literal types, union types, type aliase
 - `07-generic.ts` — Generics: generic functions, type parameters (`T`), type inference, generic interfaces (`apiResponse<T>`), and generics vs `any`
 - `08-generic-with-promise.ts` — Generics with Promises: async/await handling, `Promise<T | undefined>`, API response typing, and error narrowing
 
+### OOP in TypeScript
+
+Covers core object-oriented programming principles in TypeScript including classes, encapsulation, inheritance, polymorphism, access modifiers, and method overriding. Detailed topic notes and examples are available in [README.md](./03-OOP%20in%20TypeScript/README.md).
+
+#### Topics Covered
+
+- `01-Class-and-Object.ts` — OOP basics: classes, objects (instances), constructors, methods, `this`, `new`, and `instanceof`
+- `02-Encapsulation.ts` — Encapsulation: access modifiers (`public`, `private`, `protected`, `readonly`), parameter properties, getters, and setters
+- `03-Inheritance.ts` — Inheritance: `extends`, `super()`, `protected` modifier, and validation inside setters
+- `04-Polymorphism.ts` — Polymorphism: method overriding, the `override` keyword, and flexible parameter handling
+
 ---
 
 ## Folder Structure
@@ -41,5 +52,5 @@ TypeScript/
 ├── README.md
 ├── 01-TypeScript Fundamentals/
 ├── 02-TypeScript Advanced Type/
-└── 03-Object Oriented Programming in TypeScript/
+└── 03-OOP in TypeScript/
 ```
