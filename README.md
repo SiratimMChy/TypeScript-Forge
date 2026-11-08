@@ -33,7 +33,7 @@ Covers advanced type mechanics including literal types, union types, type aliase
 
 ### OOP in TypeScript
 
-Covers core object-oriented programming principles in TypeScript including classes, encapsulation, inheritance, polymorphism, access modifiers, and method overriding. Detailed topic notes and examples are available in [README.md](./03-OOP%20in%20TypeScript/README.md).
+Covers core object-oriented programming principles in TypeScript including classes, encapsulation, inheritance, polymorphism, abstraction, access modifiers, and method overriding. Detailed topic notes and examples are available in [README.md](./03-OOP%20in%20TypeScript/README.md).
 
 #### Topics Covered
 
@@ -41,6 +41,8 @@ Covers core object-oriented programming principles in TypeScript including class
 - `02-Encapsulation.ts` — Encapsulation: access modifiers (`public`, `private`, `protected`, `readonly`), parameter properties, getters, and setters
 - `03-Inheritance.ts` — Inheritance: `extends`, `super()`, `protected` modifier, and validation inside setters
 - `04-Polymorphism.ts` — Polymorphism: method overriding, the `override` keyword, and flexible parameter handling
+- `05-Abstraction.ts` — Abstraction: abstract classes, abstract methods, implementation enforcement, and abstract classes vs interfaces
+- `06-minidom-oop.ts` — Real-world OOP: building a UI component system (Mini DOM) using abstract classes, polymorphism, and composition
 
 ---
 

@@ -505,3 +505,119 @@ Remember:
 - A child class only needs a constructor + 'super()' if it adds new properties of its own (like Developer).
 - An overridden method in a child class can omit parameters it does not use (like 'taxRate' in Manager).
 
+**05-Abstraction.ts**
+
+Abstraction in TypeScript OOP
+
+1. What is Abstraction?
+
+- Abstraction is the process of hiding the internal implementation details
+  and showing only the essential functionality (method structure) to the user.
+- Instead of saying HOW a task is done, an abstract parent class only says
+  WHAT task must be done, leaving the actual calculation to the child classes.
+
+Example in our code:
+Every Employee must have a way to calculate their pay ('calculatePay()'),
+but a generic "Employee" does not have a fixed formula. So Employee defines
+'abstract calculatePay(): number;' without a body, forcing Manager and
+Developer to provide their own implementation details.
+
+2. Two Ways to Achieve Abstraction in TypeScript:
+
+- Just like in Java, there are two ways to achieve abstraction in TypeScript:
+  1. Abstract Class (using the 'abstract class' keywords) -> Partial to full abstraction.
+  2. Interface (using the 'interface' keyword) -> 100% abstraction (contains no method bodies or constructors).
+
+3. Key Rules of an Abstract Class:
+
+- Declared with 'abstract':
+  We use the 'abstract' keyword before the 'class' keyword (e.g., abstract class Employee).
+
+- If there is an abstract method, the class MUST be abstract:
+  You cannot put an abstract method inside a normal class.
+
+- What an Abstract Class can contain:
+  An abstract class can have:
+  * Data members (properties like 'name' and '_baseSalary')
+  * A 'constructor' to initialize those properties
+  * Normal (non-abstract) methods with bodies (like getters, setters, or helper methods)
+  * Abstract methods without bodies (like 'abstract calculatePay(): number;')
+
+- Cannot be instantiated directly:
+  We cannot create an object directly from an abstract class using 'new'
+  (writing 'new Employee()' gives an error). It acts strictly as a base blueprint.
+
+- Needs to be extended:
+  To use an abstract class, we must create a child class using 'extends'
+  (e.g., class Manager extends Employee).
+
+- Child class MUST implement abstract methods:
+  Any child class that extends an abstract class must write the body/logic
+  for all inherited abstract methods. (That is why if we uncomment
+  'abstract getResources(): string[];', both Manager and Developer must implement it).
+
+Important Differences:
+
+- Normal Class      -> Can create objects with 'new'; cannot have abstract methods.
+- Abstract Class    -> Cannot create objects with 'new'; can have constructors, properties, normal methods, and abstract methods (used with 'extends').
+- Interface         -> Cannot have constructors or method bodies at all; only defines structure (used with 'implements').
+- Normal Method     -> Has both a declaration and a body '{ ... }'.
+- Abstract Method   -> Has only a declaration (name, parameters, return type) and NO body.
+
+Remember:
+
+- Abstraction = Hiding implementation details and showing only the functionality.
+- Two ways to achieve abstraction: Abstract Class and Interface.
+- If a class contains even one abstract method, the class must be marked as 'abstract'.
+- Abstract classes can have constructors, properties, normal methods, and abstract methods.
+- You cannot use 'new' on an abstract class; you must 'extend' it and implement its abstract methods in the child class.
+
+**06-minidom-oop.ts**
+
+Building a UI Component System using Abstract Classes & Polymorphism
+
+1. Role of the Abstract Class (UIElement):
+
+- 'UIElement' acts as a strict contract and template for all UI components.
+- By marking it as 'abstract', we ensure that no one can accidentally create a generic
+  'new UIElement()' directly; every element must be a specific component like Input, Button, or Form.
+- The 'protected id: string' property ensures that child classes can easily access the element's ID.
+
+2. Role of the Abstract Method (render):
+
+- 'abstract render(): string;' declares that every UI element must know how to turn itself into an HTML string.
+- It doesn't provide a body here because an Input renders differently than a Button or a Form.
+
+3. Polymorphism and Composition in 'Form':
+
+- Look at the 'Form' class:
+  private children: UIElement[] = [];
+- Because 'children' accepts the abstract type 'UIElement[]', the Form can hold Inputs,
+  Buttons, or even other nested Forms inside it (Composition).
+- Inside the Form's 'render()' method:
+  this.children.map((child) => child.render())
+- This is pure **Polymorphism**: the Form doesn't need to check whether a child is an Input or a Button;
+  it simply calls '.render()' on each child, and TypeScript automatically executes the correct
+  version of 'render()' for that specific object!
+
+4. The 'super()' Call in Subclasses:
+
+- Every subclass (Input, Button, Form) must call 'super(id)' inside its constructor to initialize
+  the parent's 'id' property.
+
+Important Concepts Used Here:
+
+- Abstract Classes -> Prevents direct instantiation and enforces shared structure.
+- Abstract Methods -> Forces child classes to implement specific behavior.
+- Inheritance      -> Child classes inherit common properties (like 'id') from UIElement.
+- Polymorphism     -> A uniform method call ('render()') behaves differently depending on the object type.
+- Composition      -> Building complex objects (Form) by combining simpler objects (Input, Button).
+
+Remember:
+
+- Use Abstract Classes when you are building a family of related classes that share common behavior and rules.
+- Polymorphism makes your UI rendering engine extremely flexible and scalable—adding a new component
+  (like a 'Checkbox' or 'Dropdown') only requires creating a new class that extends 'UIElement'.
+
+
+
