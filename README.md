@@ -45,6 +45,21 @@ Covers core object-oriented programming principles in TypeScript including class
 - `06-minidom-oop.ts` — Real-world OOP: building a UI component system (Mini DOM) using abstract classes, polymorphism, and composition
 - `07-utility-classes.ts` — Utility types: `Partial`, `Required`, `Pick`, `Omit`, and `Record`
 
+### TypeScript Problem Solving
+
+A set of practical problem-solving challenges covering TypeScript fundamentals, type narrowing, tuples, generics, array methods, OOP inheritance, and asynchronous promises. Detailed problem solutions and notes are available in [README.md](./04-TypeScript-Problem-Solving/README.md).
+
+#### Problems Covered
+
+- `P1.ts` — Optional parameters and default multiplier logic
+- `P2.ts` — Type narrowing with union types (`string | number | boolean`)
+- `P3.ts` — `readonly` coordinate tuples and destructuring
+- `P4.ts` — Generic rest parameters for array concatenation
+- `P5.ts` — Object filtering with interfaces and multiple conditions
+- `P6.ts` — Generic object key extraction using `keyof` and indexed access types
+- `P7.ts` — Class inheritance, access modifiers (`protected`, `private`), and `super()`
+- `P8.ts` — Asynchronous age validation using `Promise` and error handling
+
 ---
 
 ## Folder Structure
@@ -55,5 +70,6 @@ TypeScript/
 ├── README.md
 ├── 01-TypeScript Fundamentals/
 ├── 02-TypeScript Advanced Type/
-└── 03-OOP in TypeScript/
+├── 03-OOP in TypeScript/
+└── 04-TypeScript-Problem-Solving/
 ```
