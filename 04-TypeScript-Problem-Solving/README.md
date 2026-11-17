@@ -65,3 +65,25 @@ Asynchronous Age Validation with Promises
 - Demonstrates creating and consuming a `Promise<string>` with asynchronous operations (`setTimeout`).
 - Handles success via `resolve()` and failure via `reject(new Error(...))`.
 - Demonstrates promise handling using `.then() / .catch()` chains as well as top-level `await`.
+
+**P9.ts**
+
+Shape Area Calculator with Discriminated Unions
+
+- Demonstrates TypeScript's Discriminated Union pattern using three shapes (`Circle`, `Rectangle`, and `Triangle`).
+- Each shape defines a literal property `shape` as a discriminator (`"circle" | "rectangle" | "triangle"`).
+- Uses `if-else` type narrowing to safely access shape-specific properties (`radius`, `width`, `height`, `base`) and compute area.
+
+**P10.ts**
+
+Bank Account Management with Encapsulation & Validation
+
+- Demonstrates OOP Encapsulation using `BankAccount` class.
+- Uses access modifiers:
+  * `public readonly accountNumber`: read-only public property.
+  * `public holderName`: publicly accessible property.
+  * `private _balance`: strictly hidden from outside modification.
+- Implements a getter `balance` to expose read access to the balance.
+- Implements business logic methods `deposit()` and `withdraw()` with parameter validation and balance checks.
+
+
