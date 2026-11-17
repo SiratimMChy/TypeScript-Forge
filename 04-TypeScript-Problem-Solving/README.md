@@ -86,4 +86,19 @@ Bank Account Management with Encapsulation & Validation
 - Implements a getter `balance` to expose read access to the balance.
 - Implements business logic methods `deposit()` and `withdraw()` with parameter validation and balance checks.
 
+**P11.ts**
+
+Discount Calculator with Literal Union Types
+
+- Defines a `DiscountType` union type (`"PERCENTAGE" | "FLAT"`).
+- Implements `applyDiscount()` calculating percentage-based or flat discount amounts using `if-else` branch logic.
+
+**P12.ts**
+
+User Access Checker with Interface & Literal Types
+
+- Defines a `User` interface with `name`, `role` (`"admin" | "editor" | "viewer"`), and `isActive`.
+- Implements `canEdit()` using boolean logic to check if a user is active and has appropriate editorial or administrative roles.
+
+
 

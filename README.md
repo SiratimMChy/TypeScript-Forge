@@ -61,8 +61,8 @@ A set of practical problem-solving challenges covering TypeScript fundamentals, 
 - `P8.ts` — Asynchronous age validation using `Promise` and error handling
 - `P9.ts` — Shape area calculation using discriminated unions and type narrowing
 - `P10.ts` — Bank account management using OOP encapsulation, access modifiers, and validation methods
-- `P9.ts` — Shape area calculation using discriminated unions and type narrowing
-- `P10.ts` — Bank account management using OOP encapsulation, access modifiers, and validation methods
+- `P11.ts` — Discount calculation using literal union types
+- `P12.ts` — Role-based user access checking with interfaces and literal types
 
 ---
 
