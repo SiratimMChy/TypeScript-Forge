@@ -63,6 +63,7 @@ A set of practical problem-solving challenges covering TypeScript fundamentals, 
 - `P10.ts` — Bank account management using OOP encapsulation, access modifiers, and validation methods
 - `P11.ts` — Discount calculation using literal union types
 - `P12.ts` — Role-based user access checking with interfaces and literal types
+- `P13.ts` — Calculating averages with rest parameters and array reduce
 
 ---
 

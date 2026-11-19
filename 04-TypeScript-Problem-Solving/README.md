@@ -100,5 +100,13 @@ User Access Checker with Interface & Literal Types
 - Defines a `User` interface with `name`, `role` (`"admin" | "editor" | "viewer"`), and `isActive`.
 - Implements `canEdit()` using boolean logic to check if a user is active and has appropriate editorial or administrative roles.
 
+**P13.ts**
+
+Calculate Average with Rest Parameters
+
+- Implements `calculateAverage()` using TypeScript's rest parameter syntax (`...numbers: number[]`).
+- Handles the empty parameter case safely returning `0`, and calculates the average using array `.reduce()`.
+
+
 
 
