@@ -107,6 +107,21 @@ Calculate Average with Rest Parameters
 - Implements `calculateAverage()` using TypeScript's rest parameter syntax (`...numbers: number[]`).
 - Handles the empty parameter case safely returning `0`, and calculates the average using array `.reduce()`.
 
+**P14.ts**
+
+Safe Property Access with Optional Properties & Truthiness
+
+- Defines a `UserProfile` interface with an optional nested `address` object (`city` and `country`).
+- Implements `getUserCity()` using truthiness narrowing to safely extract `city` or fall back to `"City not provided"`.
+
+**P15.ts**
+
+Generic First Element Getter
+
+- Implements a generic function `getFirstElement<T>()` that accepts an array of any type `T[]`.
+- Safely handles empty arrays by returning `undefined`, otherwise returning the first element `T`.
+
+
 
 
 

@@ -64,6 +64,8 @@ A set of practical problem-solving challenges covering TypeScript fundamentals, 
 - `P11.ts` — Discount calculation using literal union types
 - `P12.ts` — Role-based user access checking with interfaces and literal types
 - `P13.ts` — Calculating averages with rest parameters and array reduce
+- `P14.ts` — Safe property access using optional properties and truthiness checks
+- `P15.ts` — Generic array element retrieval with undefined fallback
 
 ---
 
