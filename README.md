@@ -67,7 +67,7 @@ A set of practical problem-solving challenges covering TypeScript fundamentals, 
 - `P14.ts` — Safe property access using optional properties and truthiness checks
 - `P15.ts` — Generic array element retrieval with undefined fallback
 - `P16.ts` — Greeting message formatting with default and optional parameters
-
+- `P17.ts` — Type narrowing and method execution using the "in" operator
 
 ---
 

@@ -128,3 +128,16 @@ Greeting Generator with Default & Optional Parameters
 - Implements `formatGreeting()` combining a required parameter (`name`), an optional parameter (`title?: string`), and a default parameter (`greeting: string = "Hello"`).
 - Uses conditional logic to safely include the title when provided, preventing `undefined` in template literals.
 
+**P17.ts**
+
+Vehicle Action Checker with "in" Operator
+
+- Defines `Car` and `Boat` object types with distinct method signatures (`drive` vs `sail`).
+- Implements `startVehicle()` using TypeScript's `"in"` operator type guard to narrow union `Car | Boat` and invoke the appropriate method safely.
+
+
+
+
+
+
+
