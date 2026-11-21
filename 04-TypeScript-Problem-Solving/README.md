@@ -121,7 +121,10 @@ Generic First Element Getter
 - Implements a generic function `getFirstElement<T>()` that accepts an array of any type `T[]`.
 - Safely handles empty arrays by returning `undefined`, otherwise returning the first element `T`.
 
+**P16.ts**
 
+Greeting Generator with Default & Optional Parameters
 
-
+- Implements `formatGreeting()` combining a required parameter (`name`), an optional parameter (`title?: string`), and a default parameter (`greeting: string = "Hello"`).
+- Uses conditional logic to safely include the title when provided, preventing `undefined` in template literals.
 

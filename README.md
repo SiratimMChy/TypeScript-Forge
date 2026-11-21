@@ -66,6 +66,8 @@ A set of practical problem-solving challenges covering TypeScript fundamentals, 
 - `P13.ts` — Calculating averages with rest parameters and array reduce
 - `P14.ts` — Safe property access using optional properties and truthiness checks
 - `P15.ts` — Generic array element retrieval with undefined fallback
+- `P16.ts` — Greeting message formatting with default and optional parameters
+
 
 ---
 
